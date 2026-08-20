@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/cursos/", "destination": "/curso/", "permanent": true },
+    { "source": "/dicas/", "destination": "/universo/", "permanent": true },
+    { "source": "/sobre-nos/", "destination": "/sobre/", "permanent": true },
+    { "source": "/politica-de-privacidade/", "destination": "/privacidade/", "permanent": true },
+    { "source": "/dadgad-ii-2024/", "destination": "/curso/", "permanent": true },
+    { "source": "/2022/10/27/a-historia-da-afinacao-dadgad-e-seu-impacto-no-disco-historias-e-bicicletas-do-oficina-g3/", "destination": "/universo/historias-e-bicicletas-oficina-g3-dadgad/", "permanent": true }
+  ]
+}

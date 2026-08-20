@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://descomplicandodadgad.com.br/sitemap.xml

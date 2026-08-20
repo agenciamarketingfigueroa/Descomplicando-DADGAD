@@ -1,0 +1,13 @@
+{
+  "name": "descomplicando-dadgad",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 -d site",
+    "build": "node scripts/build.mjs",
+    "lint": "node scripts/validate.mjs",
+    "typecheck": "node --check site/assets/site.js && node --check site/assets/chords.js && node --check site/assets/tuner.js",
+    "test": "node scripts/validate.mjs"
+  }
+}

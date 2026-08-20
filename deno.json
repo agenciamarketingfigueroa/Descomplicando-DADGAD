@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "dev": "python3 -m http.server 4173 -d site",
+    "build": "deno run --allow-read --allow-write scripts/build.ts",
+    "lint": "deno check site/assets/site.js site/assets/chords.js site/assets/tuner.js scripts/build.ts scripts/validate.ts && deno run --allow-read scripts/validate.ts",
+    "test": "deno run --allow-read scripts/validate.ts"
+  }
+}
