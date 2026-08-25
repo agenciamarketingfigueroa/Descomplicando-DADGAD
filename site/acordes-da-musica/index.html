@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acordes de uma música em DADGAD — Monte seu guia</title>
+  <meta name="description" content="Informe os acordes ou importe uma cifra para criar um guia da música em DADGAD, ouvir as posições e exportar um PDF personalizado.">
+  <link rel="canonical" href="https://descomplicandodadgad.com.br/acordes-da-musica/">
+  <meta property="og:type" content="website"><meta property="og:title" content="Acordes de uma música em DADGAD"><meta property="og:description" content="Transforme os acordes de uma música em um guia visual para tocar em DADGAD."><meta property="og:url" content="https://descomplicandodadgad.com.br/acordes-da-musica/"><meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Acordes da música em DADGAD","url":"https://descomplicandodadgad.com.br/acordes-da-musica/","applicationCategory":"MusicApplication","operatingSystem":"Qualquer navegador moderno","isAccessibleForFree":true,"description":"Ferramenta para organizar os acordes de uma música, encontrar posições em DADGAD e exportar um guia em PDF."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://descomplicandodadgad.com.br/"},{"@type":"ListItem","position":2,"name":"Acordes da música","item":"https://descomplicandodadgad.com.br/acordes-da-musica/"}]}]}</script>
+</head>
+<body class="song-tool-page">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header"><div class="container nav-shell"><a class="brand" href="/" aria-label="Descomplicando o DADGAD — início"><span class="brand-mark">DAD<br>GAD</span><span>Descomplicando<br>o DADGAD</span></a><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal">Menu</button><nav class="nav-links" id="menu-principal" data-menu aria-label="Navegação principal"><a href="/aprenda/">Aprenda</a><a href="/encontre-seu-acorde/">Acordes</a><a href="/acordes-da-musica/" aria-current="page">Músicas</a><a href="/universo/">Universo</a><a href="/sobre/">Felipe</a><a class="nav-cta" href="/curso/" data-event="click_course" data-label="header">Conheça o curso</a></nav></div></header>
+
+  <main id="conteudo">
+    <header class="page-hero song-tool-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Trilha de navegação"><ol><li><a href="/">Início</a></li><li aria-current="page">Acordes da música</li></ol></nav>
+        <p class="eyebrow">Da cifra para o braço</p>
+        <h1 class="display">Uma música.<br><em>Os acordes certos.</em></h1>
+        <p class="lead">Informe a sequência ou importe uma cifra. A ferramenta organiza os acordes principais, sugere opções com dissonâncias e prepara um guia para estudar ou salvar em PDF.</p>
+      </div>
+    </header>
+
+    <section class="song-builder" aria-labelledby="montar-guia-title">
+      <div class="container song-builder-shell">
+        <div class="song-builder-intro">
+          <p class="eyebrow">Monte o seu guia</p>
+          <h2 id="montar-guia-title">Qual música você quer tocar?</h2>
+          <p>As digitações ensinadas no curso aparecem primeiro. Quando houver espaço para colorir a harmonia, mostramos também variações abertas que funcionam bem em DADGAD.</p>
+        </div>
+
+        <form class="song-form" data-song-form>
+          <div class="song-fields-two">
+            <label><span>Nome da música</span><input type="text" autocomplete="off" placeholder="Ex.: Tempo Perdido" data-song-title></label>
+            <label><span>Artista</span><input type="text" autocomplete="off" placeholder="Ex.: Legião Urbana" data-song-artist></label>
+          </div>
+
+          <div class="song-mode-tabs" role="tablist" aria-label="Forma de adicionar os acordes">
+            <button type="button" role="tab" aria-selected="true" data-song-mode="manual">Adicionar manualmente</button>
+            <button type="button" role="tab" aria-selected="false" data-song-mode="link">Importar por link</button>
+          </div>
+
+          <div class="song-mode-panel" role="tabpanel" data-mode-panel="manual">
+            <label><span>Acordes presentes na música</span><textarea rows="4" placeholder="D  Bm  G  A7&#10;Pode separar por espaço, vírgula ou linha." data-song-chords></textarea></label>
+            <div class="song-form-actions"><button class="btn" type="submit">Criar meu guia →</button><button class="text-button" type="button" data-song-example>Carregar exemplo</button></div>
+          </div>
+
+          <div class="song-mode-panel" role="tabpanel" data-mode-panel="link" hidden>
+            <label><span>Link da cifra</span><input type="url" inputmode="url" autocomplete="url" placeholder="https://www.cifraclub.com.br/..." data-song-url></label>
+            <p class="song-privacy-note">Compatível com Cifra Club e Cifras.com.br. Lemos apenas o nome da música, o artista e os símbolos dos acordes — a letra não é copiada.</p>
+            <button class="btn" type="button" data-import-song>Importar acordes</button>
+          </div>
+          <p class="song-status" role="status" aria-live="polite" data-song-status></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="song-output" data-song-output hidden aria-labelledby="guia-title">
+      <div class="print-only print-brand-header">
+        <a href="https://descomplicandodadgad.com.br/" aria-label="Acessar o portal Descomplicando o DADGAD"><span class="print-logo">DAD<br>GAD</span><span>Descomplicando o DADGAD</span></a>
+        <span>Guia de acordes · DADGAD</span>
+      </div>
+
+      <div class="container">
+        <div class="song-result-head">
+          <div><p class="eyebrow">Seu guia de acordes</p><h2 id="guia-title" data-result-song>Minha música</h2><p data-result-artist>Artista não informado</p></div>
+          <button class="btn screen-only" type="button" data-export-song disabled>Exportar em PDF ↓</button>
+        </div>
+
+        <div class="song-source" data-song-source-wrap hidden>Importado de <a href="#" target="_blank" rel="noopener nofollow" data-song-source></a>. Confira a cifra original para letra, ritmo e estrutura.</div>
+
+        <div class="song-exact-list"><span>Acordes identificados</span><div data-exact-chords></div></div>
+
+        <section class="song-chord-section" aria-labelledby="principais-title">
+          <div class="song-section-head"><p class="eyebrow">Comece por aqui</p><h3 id="principais-title">Acordes principais</h3><p>Formas diretas para montar a base da música.</p></div>
+          <div class="song-chord-grid" data-main-chords></div>
+        </section>
+
+        <section class="song-chord-section song-color-section" data-color-section aria-labelledby="cores-title">
+          <div class="song-section-head"><p class="eyebrow">Depois, experimente</p><h3 id="cores-title">Dissonâncias e cores</h3><p>Variações para criar movimento sem perder a função do acorde principal.</p></div>
+          <div class="song-chord-grid" data-color-chords></div>
+        </section>
+
+        <aside class="song-learning-note"><strong>Ouça antes de trocar.</strong><p>Uma dissonância pode soar linda isoladamente e ainda não funcionar naquele trecho. Compare com a melodia e mantenha a forma principal como referência.</p></aside>
+
+        <section class="song-promo" aria-labelledby="continuar-title">
+          <div class="song-promo-head"><p class="eyebrow">Continue estudando</p><h3 id="continuar-title">Transforme desenhos em linguagem.</h3></div>
+          <div class="song-promo-grid">
+            <article><span>Curso completo</span><h4>Descomplicando o DADGAD</h4><p>Aprenda a adaptar músicas, construir acordes e pensar naturalmente na afinação.</p><a class="btn" href="https://descomplicandodadgad.com.br/curso/">Conhecer o curso →</a></article>
+            <article><span>Material de consulta</span><h4>Ebook Descomplicando o DADGAD</h4><p>Tenha acordes, inversões, escalas e caminhos práticos sempre por perto.</p><a class="btn secondary" href="https://descomplicandodadgad.com.br/ebook-dadgad/">Conhecer o ebook →</a></article>
+          </div>
+          <a class="song-community-link" href="https://chat.whatsapp.com/J2av3L5l731DFTY2scMYMT">Entre no grupo e na comunidade DADGAD →</a>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/"><span class="brand-mark">DAD<br>GAD</span><span>Descomplicando o DADGAD</span></a><p>Conteúdo e ferramentas para tocar, compreender e criar em DADGAD.</p></div><div class="footer-col"><h2>Aprenda</h2><a href="/aprenda/">Comece aqui</a><a href="/aprenda/como-afinar-em-dadgad/">Como afinar</a></div><div class="footer-col"><h2>Explore</h2><a href="/encontre-seu-acorde/">Dicionário</a><a href="/acordes-da-musica/">Acordes da música</a><a href="/universo/">Universo</a></div><div class="footer-col"><h2>Sobre</h2><a href="/sobre/">Felipe Figueroa</a><a href="/contato/">Contato</a></div></div><div class="footer-bottom"><span>© <span data-year></span> Felipe Figueroa.</span><a href="/privacidade/">Privacidade</a></div></div></footer>
+  <script src="/assets/site.js" defer></script><script src="/assets/song-chords.js" type="module"></script>
+</body>
+</html>

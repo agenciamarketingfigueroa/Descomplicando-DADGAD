@@ -166,9 +166,9 @@ function candidatesForString(openPitch, pitches) {
   return candidates;
 }
 
-export function generateVoicings(root, quality) {
-  const pitches = chordPitches(root, quality);
-  const bassTarget = quality === 'inversion' ? pitches[1] : root;
+export function generateVoicingsForIntervals(root, intervals, options = {}) {
+  const pitches = [...new Set(intervals.map((interval) => mod(root + interval)))];
+  const bassTarget = options.bassTarget ?? root;
   const candidates = DADGAD_TUNING.map(({ pitch }) => candidatesForString(pitch, pitches));
   const collected = [];
 
@@ -206,4 +206,10 @@ export function generateVoicings(root, quality) {
       return true;
     })
     .slice(0, 9);
+}
+
+export function generateVoicings(root, quality) {
+  const pitches = chordPitches(root, quality);
+  const bassTarget = quality === 'inversion' ? pitches[1] : root;
+  return generateVoicingsForIntervals(root, QUALITY[quality].intervals, { bassTarget });
 }

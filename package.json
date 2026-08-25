@@ -7,7 +7,7 @@
     "dev": "python3 -m http.server 4173 -d site",
     "build": "node scripts/build.mjs",
     "lint": "node scripts/validate.mjs",
-    "typecheck": "node --check site/assets/site.js && node --check site/assets/chord-engine.js && node --check site/assets/chords.js && node --check site/assets/tuner.js",
-    "test": "node scripts/validate.mjs && deno run --allow-read scripts/test-chords.ts"
+    "typecheck": "node --check site/assets/site.js && node --check site/assets/chord-engine.js && node --check site/assets/chords.js && node --check site/assets/song-chords.js && node --check site/assets/tuner.js && node --check api/importar-cifra.js",
+    "test": "node scripts/validate.mjs && deno run --allow-read scripts/test-chords.ts && deno run --allow-read scripts/test-song-tool.ts"
   }
 }
