@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dicionário de Acordes DADGAD — Encontre seu acorde</title>
-  <meta name="description" content="Encontre acordes em DADGAD por nome, nota ou classe. Veja diagramas de acordes maiores, menores, diminutos, meio-diminutos e inversões — e ouça cada posição.">
+  <meta name="description" content="Encontre acordes em DADGAD por nome, nota ou classe. Veja primeiro as digitações do curso e explore outras posições calculadas para a afinação.">
   <link rel="canonical" href="https://descomplicandodadgad.com.br/encontre-seu-acorde/">
   <meta property="og:type" content="website"><meta property="og:title" content="Dicionário de Acordes DADGAD"><meta property="og:description" content="Digite um acorde ou explore por classe, veja a digitação e ouça o resultado."><meta property="og:url" content="https://descomplicandodadgad.com.br/encontre-seu-acorde/"><meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/assets/styles.css">
@@ -15,21 +15,22 @@
   <header class="site-header"><div class="container nav-shell"><a class="brand" href="/" aria-label="Descomplicando o DADGAD — início"><span class="brand-mark">DAD<br>GAD</span><span>Descomplicando<br>o DADGAD</span></a><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal">Menu</button><nav class="nav-links" id="menu-principal" data-menu aria-label="Navegação principal"><a href="/aprenda/">Aprenda</a><a href="/encontre-seu-acorde/" aria-current="page">Acordes</a><a href="/universo/">Universo</a><a href="/sobre/">Felipe</a><a class="nav-cta" href="/curso/" data-event="click_course" data-label="header">Conheça o curso</a></nav></div></header>
   <main id="conteudo">
     <header class="page-hero">
-      <div class="container"><nav class="breadcrumbs" aria-label="Trilha de navegação"><ol><li><a href="/">Início</a></li><li aria-current="page">Dicionário de acordes</li></ol></nav><p class="eyebrow">Ferramenta gratuita · DADGAD</p><h1 class="display">Encontre seu<br><em>acorde.</em></h1><p class="lead">Digite a cifra ou combine uma nota e uma classe. Você recebe posições tocáveis, as notas de cada corda e uma prévia sonora — tudo calculado para D A D G A D.</p></div>
+      <div class="container"><nav class="breadcrumbs" aria-label="Trilha de navegação"><ol><li><a href="/">Início</a></li><li aria-current="page">Dicionário de acordes</li></ol></nav><p class="eyebrow">Ferramenta gratuita · DADGAD</p><h1 class="display">Encontre seu<br><em>acorde.</em></h1><p class="lead">Digite a cifra ou combine uma nota e uma classe. As digitações usadas no curso aparecem primeiro; depois, você pode explorar outras posições e ouvir cada uma delas.</p></div>
     </header>
 
     <section class="dictionary" aria-labelledby="resultado-acorde">
       <div class="container dictionary-shell">
         <aside class="dictionary-controls" aria-label="Filtros do dicionário de acordes">
-          <div class="control-group"><label class="control-label" for="chord-search">Digite um acorde</label><div class="search-wrap"><input class="search-input" id="chord-search" type="search" inputmode="search" autocomplete="off" placeholder="Ex.: D, Bm, F#dim, C#m7b5" data-chord-search></div></div>
+          <div class="control-group"><label class="control-label" for="chord-search">Digite um acorde</label><div class="search-wrap"><input class="search-input" id="chord-search" type="search" inputmode="search" autocomplete="off" placeholder="Ex.: D, Bm, A7, C7+" data-chord-search></div></div>
           <div class="control-group"><label class="control-label" for="root-select">Nota fundamental</label><select class="control-select" id="root-select" data-root></select></div>
           <div class="control-group"><span class="control-label">Classe do acorde</span><div class="filter-pills" role="group" aria-label="Classe do acorde">
-            <button class="filter-pill" type="button" data-quality="major" aria-pressed="true">Maior</button><button class="filter-pill" type="button" data-quality="minor" aria-pressed="false">Menor</button><button class="filter-pill" type="button" data-quality="diminished" aria-pressed="false">Diminuto</button><button class="filter-pill" type="button" data-quality="halfDiminished" aria-pressed="false">Meio-diminuto</button><button class="filter-pill" type="button" data-quality="inversion" aria-pressed="false">Inversão</button>
+            <button class="filter-pill" type="button" data-quality="major" aria-pressed="true">Maior</button><button class="filter-pill" type="button" data-quality="minor" aria-pressed="false">Menor</button><button class="filter-pill" type="button" data-quality="dominant7" aria-pressed="false">7ª</button><button class="filter-pill" type="button" data-quality="major7" aria-pressed="false">7+</button><button class="filter-pill" type="button" data-quality="diminished" aria-pressed="false">Diminuto</button><button class="filter-pill" type="button" data-quality="halfDiminished" aria-pressed="false">Meio-diminuto</button><button class="filter-pill" type="button" data-quality="inversion" aria-pressed="false">Inversão</button>
           </div></div>
-          <p class="dictionary-tip"><strong>Como ler:</strong> ○ é corda solta, × é corda que não deve soar. Os números sob o diagrama mostram a forma da 6ª para a 1ª corda.</p>
+          <p class="dictionary-tip"><strong>Como ler:</strong> ○ é corda solta, × é corda que não deve soar e ● indica a casa pressionada.</p>
         </aside>
         <div class="results-panel" aria-live="polite">
           <div class="results-top"><div><p class="eyebrow">Posições disponíveis</p><h2 id="resultado-acorde" data-result-title>D</h2></div><span class="result-count" data-result-count></span></div>
+          <p class="fixed-tuning-note"><strong>Afinação fixa em todos os diagramas:</strong> D · A · D · G · A · D.</p>
           <div class="chord-grid" data-chord-grid></div>
         </div>
       </div>
@@ -37,10 +38,10 @@
 
     <section class="content-section"><div class="narrow prose">
       <p class="eyebrow">Mais que um catálogo</p><h2>O que a ferramenta considera?</h2>
-      <p>Cada diagrama é montado a partir das notas reais do acorde sobre a afinação DADGAD. A busca prioriza posições compactas, com todas as notas necessárias e sem saltos impossíveis entre as casas. O resultado é um ponto de partida musical — experimente deixar algumas cordas ressoarem e compare os voicings pelo ouvido.</p>
+      <p>As sugestões do curso preservam as digitações do workbook, inclusive os bordões e as cordas abertas que dão identidade à afinação. Depois delas, a ferramenta apresenta posições calculadas a partir das notas do acorde, priorizando desenhos compactos e tocáveis.</p>
       <div class="callout"><strong>Uma posição pode estar correta e ainda não servir ao seu arranjo.</strong> Observe a nota mais grave, a região do braço e como as vozes se conectam ao acorde anterior e ao próximo.</div>
       <h2>Classes disponíveis</h2>
-      <p><strong>Maiores</strong> combinam fundamental, terça maior e quinta justa. <strong>Menores</strong> trocam a terça maior pela terça menor. <strong>Diminutos</strong> usam terça menor e quinta diminuta. <strong>Meio-diminutos</strong> acrescentam a sétima menor ao diminuto. Em <strong>inversões</strong>, a terça aparece no baixo para mudar o movimento da linha grave.</p>
+      <p><strong>Maiores</strong> combinam fundamental, terça maior e quinta justa. <strong>Menores</strong> trocam a terça maior pela terça menor. Os acordes com <strong>7ª</strong> e <strong>7+</strong> acrescentam cor e movimento. <strong>Diminutos</strong> usam terça menor e quinta diminuta; <strong>meio-diminutos</strong> somam a sétima menor. Em <strong>inversões</strong>, outra nota do acorde aparece no baixo.</p>
       <h2>Por onde continuar</h2>
       <p>Se os desenhos ainda parecem estranhos, comece entendendo <a href="/aprenda/o-que-e-dadgad/">como a afinação está organizada</a>. Depois, use dois ou três acordes desta página e ouça como as cordas soltas criam continuidade entre eles.</p>
       <div class="next-card"><p class="eyebrow">Próximo passo</p><h2>Quer parar de depender de desenhos prontos?</h2><p>No curso, Felipe ensina a lógica para encontrar e adaptar acordes dentro de músicas reais.</p><a class="btn" href="/curso/" data-event="click_course" data-label="chord_dictionary">Conheça o curso completo →</a></div>

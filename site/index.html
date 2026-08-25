@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/assets/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://descomplicandodadgad.com.br/#website","url":"https://descomplicandodadgad.com.br/","name":"Descomplicando o DADGAD","inLanguage":"pt-BR","potentialAction":{"@type":"SearchAction","target":"https://descomplicandodadgad.com.br/encontre-seu-acorde/?acorde={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://descomplicandodadgad.com.br/sobre/#felipe","name":"Felipe Figueroa","url":"https://descomplicandodadgad.com.br/sobre/","jobTitle":"Músico, produtor musical e professor","knowsAbout":["Afinação DADGAD","Violão","Produção musical"]}]}</script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header">
     <div class="container nav-shell">
@@ -63,21 +63,33 @@
     </section>
 
     <section class="sound-section" aria-labelledby="som-title">
-      <div class="container sound-grid">
-        <div>
-          <p class="eyebrow">Antes da teoria, o som</p>
-          <h2 class="section-title" id="som-title">O que torna o DADGAD tão diferente?</h2>
-          <p class="lead">Três cordas mudam em relação à afinação padrão. O resultado é um acorde aberto de Ré suspenso, cheio de ressonância e espaço.</p>
-          <div class="tuning-strip" aria-label="Notas da afinação DADGAD">
-            <div class="tuning-note"><div><strong>D</strong><span>6ª corda</span></div></div><div class="tuning-note"><div><strong>A</strong><span>5ª corda</span></div></div><div class="tuning-note"><div><strong>D</strong><span>4ª corda</span></div></div><div class="tuning-note"><div><strong>G</strong><span>3ª corda</span></div></div><div class="tuning-note"><div><strong>A</strong><span>2ª corda</span></div></div><div class="tuning-note"><div><strong>D</strong><span>1ª corda</span></div></div>
+      <div class="container">
+        <div class="sound-intro">
+          <div>
+            <p class="eyebrow">Antes da teoria, o som</p>
+            <h2 class="section-title" id="som-title">O que torna o DADGAD tão diferente?</h2>
           </div>
-          <div class="button-row"><a class="btn secondary" href="/aprenda/como-afinar-em-dadgad/">Afinar meu violão</a></div>
+          <p class="lead">Três cordas mudam em relação à afinação padrão. O resultado é um acorde aberto de Ré suspenso, cheio de ressonância e espaço.</p>
         </div>
-        <ol class="fact-list">
-          <li><strong>03</strong><p>cordas são abaixadas um tom: a 6ª, a 2ª e a 1ª. As demais permanecem como estão.</p></li>
-          <li><strong>Dsus4</strong><p>é a sonoridade das cordas soltas. Sem terça maior ou menor, ela mantém uma ambiguidade fértil.</p></li>
-          <li><strong>∞</strong><p>é o espaço criativo que surge com bordões, drones e vozes abertas soando ao mesmo tempo.</p></li>
-        </ol>
+        <div class="sound-card">
+          <div class="sound-card-top">
+            <div><span>Afinação aberta</span><p>Da sexta para a primeira corda</p></div>
+            <a class="btn secondary" href="/aprenda/como-afinar-em-dadgad/">Abrir afinador <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="tuning-strip" aria-label="Notas da afinação DADGAD">
+            <div class="tuning-note is-lowered"><strong>D</strong><span>6ª corda</span><small>↓ 1 tom</small></div>
+            <div class="tuning-note"><strong>A</strong><span>5ª corda</span><small>original</small></div>
+            <div class="tuning-note"><strong>D</strong><span>4ª corda</span><small>original</small></div>
+            <div class="tuning-note"><strong>G</strong><span>3ª corda</span><small>original</small></div>
+            <div class="tuning-note is-lowered"><strong>A</strong><span>2ª corda</span><small>↓ 1 tom</small></div>
+            <div class="tuning-note is-lowered"><strong>D</strong><span>1ª corda</span><small>↓ 1 tom</small></div>
+          </div>
+          <ol class="fact-list">
+            <li><strong>03</strong><p>cordas descem um tom; as outras três permanecem na afinação original.</p></li>
+            <li><strong>Dsus4</strong><p>é o acorde formado pelas cordas soltas — aberto, suspenso e sem definir maior ou menor.</p></li>
+            <li><strong>Ressoa</strong><p>Bordões e cordas abertas continuam soando enquanto a harmonia se movimenta.</p></li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -106,15 +118,13 @@
       </div>
     </section>
 
-    <section class="teacher" aria-labelledby="felipe-title">
-      <div class="container teacher-grid">
-        <div class="portrait-placeholder" role="img" aria-label="Espaço reservado para fotografia autoral de Felipe Figueroa"></div>
-        <div class="teacher-copy">
-          <p class="eyebrow">Experiência antes de fórmula</p>
-          <h2 class="section-title" id="felipe-title">Felipe Figueroa</h2>
-          <blockquote>“Eu comecei tentando descobrir como tocar uma música. Acabei encontrando uma linguagem inteira.”</blockquote>
-          <p>Músico, produtor musical e professor, Felipe conheceu o DADGAD por volta de 2008 ao tentar tocar “Incondicional”, do Oficina G3. A falta de material acessível o levou a organizar o próprio método — testado no instrumento, em aulas e em arranjos reais.</p>
-          <a class="btn secondary" href="/sobre/">Conheça essa história</a>
+    <section class="about-note" aria-labelledby="felipe-title">
+      <div class="container about-note-grid">
+        <p class="eyebrow">Por trás do projeto</p>
+        <div>
+          <h2 id="felipe-title">Um projeto de Felipe Figueroa.</h2>
+          <p>Músico, produtor e professor, Felipe transforma anos de prática com o DADGAD em conteúdo direto para quem quer explorar a afinação.</p>
+          <a href="/sobre/">Conheça a trajetória →</a>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
-import { DADGAD_TUNING, QUALITY, generateVoicings, spelledNoteName } from './chord-engine.js';
+import { DADGAD_LABEL, DADGAD_TUNING, QUALITY, generateVoicings, getCourseVoicings, spelledNoteName } from './chord-engine.js';
+import { createAudioContext, playGuitarString } from './guitar-audio.js';
 
 const ROOT_OPTIONS = [
   ['C', 0], ['C♯', 1], ['D♭', 1], ['D', 2], ['E♭', 3], ['E', 4], ['F', 5],
@@ -48,26 +49,30 @@ function diagramSvg(voicing, chordName) {
 
 let audioContext;
 function playVoicing(voicing, button) {
-  audioContext ||= new AudioContext();
-  const start = audioContext.currentTime;
+  audioContext ||= createAudioContext();
+  if (audioContext.state === 'suspended') audioContext.resume();
+  const start = audioContext.currentTime + .025;
+  const soundingStrings = voicing.frets.filter((fret) => fret >= 0).length;
+  const master = audioContext.createGain();
+  master.gain.value = .82 / Math.sqrt(soundingStrings);
+  master.connect(audioContext.destination);
   button.setAttribute('aria-pressed', 'true');
   voicing.frets.forEach((fret, index) => {
     if (fret < 0) return;
     const midi = DADGAD_TUNING[index].midi + fret;
     const frequency = 440 * (2 ** ((midi - 69) / 12));
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    const at = start + (index * .075);
-    oscillator.type = 'triangle';
-    oscillator.frequency.value = frequency;
-    gain.gain.setValueAtTime(0, at);
-    gain.gain.linearRampToValueAtTime(.12, at + .02);
-    gain.gain.exponentialRampToValueAtTime(.001, at + 1.7);
-    oscillator.connect(gain).connect(audioContext.destination);
-    oscillator.start(at);
-    oscillator.stop(at + 1.8);
+    playGuitarString(audioContext, frequency, {
+      when: start + (index * .055),
+      duration: 3.5,
+      level: .58,
+      pan: ((index / 5) * .34) - .17,
+      output: master
+    });
   });
-  setTimeout(() => button.setAttribute('aria-pressed', 'false'), 1800);
+  setTimeout(() => {
+    button.setAttribute('aria-pressed', 'false');
+    master.disconnect();
+  }, 4000);
 }
 
 function chordName(rootName, quality) {
@@ -77,7 +82,11 @@ function chordName(rootName, quality) {
 
 function render() {
   const name = chordName(state.rootName, state.quality);
-  const voicings = generateVoicings(state.root, state.quality);
+  const courseVoicings = getCourseVoicings(state.root, state.quality);
+  const courseShapes = new Set(courseVoicings.map(({ frets }) => frets.join('-')));
+  const generatedVoicings = generateVoicings(state.root, state.quality)
+    .filter(({ frets }) => !courseShapes.has(frets.join('-')));
+  const voicings = [...courseVoicings, ...generatedVoicings];
   resultTitle.textContent = name;
   resultCount.textContent = `${voicings.length} ${voicings.length === 1 ? 'posição encontrada' : 'posições encontradas'}`;
   grid.replaceChildren();
@@ -87,14 +96,34 @@ function render() {
     return;
   }
 
-  voicings.forEach((voicing, index) => {
+  const addGroupHeading = (title, description) => {
+    const heading = document.createElement('div');
+    heading.className = 'chord-group-heading';
+    heading.innerHTML = `<strong>${title}</strong><span>${description}</span>`;
+    grid.append(heading);
+  };
+
+  const addCard = (voicing, index, isCourse) => {
+    const cardName = voicing.name || name;
+    const type = isCourse
+      ? `<span class="course-badge">Sugestão do curso</span>${voicing.label ? `<span>${voicing.label}</span>` : ''}`
+      : `<span>${QUALITY[state.quality].label} · posição ${index + 1}</span>`;
     const card = document.createElement('article');
-    card.className = 'chord-card';
-    const labels = voicing.notes.map((note) => note === null ? '—' : spelledNoteName(note, state.rootName));
-    card.innerHTML = `<div class="chord-head"><div><h3 class="chord-name">${name}</h3><span class="chord-type">${QUALITY[state.quality].label} · posição ${index + 1}</span></div><button class="play-chord" type="button" aria-label="Ouvir ${name}, posição ${index + 1}" aria-pressed="false">▶</button></div><div class="chord-tuning"><span>Afinação</span><strong>${DADGAD_TUNING.map(({ note }) => note).join(' · ')}</strong><small>6ª → 1ª</small></div>${diagramSvg(voicing, name)}<div class="chord-row-label">Notas resultantes</div><div class="chord-notes" aria-label="Notas resultantes por corda, da sexta para a primeira">${labels.map((label) => `<span>${label}</span>`).join('')}</div><div class="chord-row-label">Casas · 6ª → 1ª</div><div class="chord-shape">${voicing.frets.map((fret) => fret < 0 ? 'x' : fret).join(' · ')}</div>`;
+    card.className = `chord-card${isCourse ? ' is-course-voicing' : ''}`;
+    card.innerHTML = `<div class="chord-head"><div><h3 class="chord-name">${cardName}</h3><span class="chord-type">${type}</span></div><button class="play-chord" type="button" aria-label="Ouvir ${cardName}${isCourse ? ', sugestão do curso' : `, posição ${index + 1}`}" aria-pressed="false">▶</button></div><div class="chord-tuning"><span>Afinação fixa</span><strong>${DADGAD_LABEL}</strong><small>DADGAD</small></div>${diagramSvg(voicing, cardName)}`;
     card.querySelector('button').addEventListener('click', (event) => playVoicing(voicing, event.currentTarget));
     grid.append(card);
-  });
+  };
+
+  if (courseVoicings.length) {
+    addGroupHeading('Sugestões do curso', 'As digitações priorizadas no workbook.');
+    courseVoicings.forEach((voicing, index) => addCard(voicing, index, true));
+  }
+
+  if (generatedVoicings.length) {
+    if (courseVoicings.length) addGroupHeading('Outras posições', 'Mais possibilidades calculadas para DADGAD.');
+    generatedVoicings.forEach((voicing, index) => addCard(voicing, index, false));
+  }
 }
 
 function setQuality(quality) {
@@ -128,6 +157,8 @@ function parseSearch(value) {
   if (tail.includes('/') || tail === 'inv') quality = 'inversion';
   else if (tail.includes('m7b5') || tail.includes('ø') || tail.includes('meio')) quality = 'halfDiminished';
   else if (tail.includes('dim') || tail.includes('°')) quality = 'diminished';
+  else if (tail.includes('maj7') || tail.includes('7+') || tail.includes('7m')) quality = 'major7';
+  else if (tail === '7' || tail.includes('dominante')) quality = 'dominant7';
   else if (tail.startsWith('m') || tail.includes('menor')) quality = 'minor';
   state = { root: rootMatch[1], rootName: rootMatch[0], quality };
   rootSelect.value = `${rootMatch[1]}:${rootMatch[0]}`;
