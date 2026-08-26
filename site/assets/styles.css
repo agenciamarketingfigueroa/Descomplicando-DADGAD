@@ -2590,3 +2590,237 @@ body.course-sales-page .course-offer .offer-price {
   }
   body.course-sales-page .course-offer .offer-price { font-size: clamp(3.7rem, 17vw, 5.1rem); }
 }
+
+/* Ebook sales page */
+body.ebook-sales-page { background: var(--course-ink); }
+body.ebook-sales-page #oferta,
+body.ebook-sales-page #conteudo-ebook { scroll-margin-top: 32px; }
+
+body.ebook-sales-page header.ebook-hero { min-height: auto; }
+body.ebook-sales-page header.ebook-hero > .ebook-hero-inner {
+  display: block;
+  width: min(calc(100% - 3rem), 1180px);
+  max-width: 1180px;
+  padding-bottom: clamp(6rem, 11vw, 10rem);
+}
+
+.ebook-sales-page .ebook-hero .sales-brand-lockup { margin-bottom: clamp(5rem, 11vw, 9rem); }
+.ebook-sales-page .ebook-hero-copy { max-width: 1000px; margin-inline: auto; text-align: center; }
+.ebook-sales-page .ebook-hero-copy .eyebrow { justify-content: center; }
+.ebook-sales-page .ebook-hero .ebook-hero-copy .display {
+  max-width: 1000px;
+  margin-inline: auto;
+  font-size: clamp(4.4rem, 9.1vw, 8.5rem);
+  line-height: .85;
+  text-wrap: balance;
+}
+.ebook-sales-page .ebook-hero .ebook-hero-copy .lead {
+  max-width: 720px;
+  margin: 2rem auto 0;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.ebook-cover-stage {
+  position: relative;
+  width: min(100%, 1080px);
+  margin: clamp(3.5rem, 7vw, 6rem) auto 0;
+  border: 1px solid rgba(130,153,255,.6);
+  background: #120b08;
+  box-shadow: 0 40px 110px rgba(0,0,0,.5), 0 0 80px rgba(95,124,255,.08);
+}
+.ebook-cover-stage::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: -1px 16% auto;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--course-accent-light), white, var(--course-accent-light), transparent);
+}
+.ebook-cover-stage img { display: block; width: 100%; height: auto; }
+.ebook-sales-page .ebook-hero-action { width: min(100%, 780px); margin: 3rem auto 0; text-align: center; }
+.ebook-sales-page .ebook-hero-action .hero-actions { justify-content: center; }
+.ebook-sales-page .ebook-hero-action .btn { min-width: min(100%, 340px); }
+
+.ebook-editorial { max-width: 1000px; }
+.ebook-editorial > .eyebrow { color: var(--course-accent); }
+.ebook-editorial > h2 {
+  max-width: 960px;
+  margin: 1.25rem 0 0;
+  color: var(--course-ink);
+  font-family: var(--course-display);
+  font-size: clamp(3.6rem, 7.8vw, 7rem);
+  font-weight: 600;
+  line-height: .91;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.ebook-story-copy { max-width: 720px; margin: clamp(3rem, 6vw, 5rem) 0 0 auto; }
+.ebook-story-copy p { color: #5d5c57; font-size: clamp(1rem, 1.6vw, 1.16rem); line-height: 1.85; }
+.ebook-story-copy p + p { margin-top: 1.4rem; }
+.ebook-editorial .text-link { margin: 2.25rem 0 0 auto; color: var(--course-accent); }
+
+body.ebook-sales-page .ebook-outcomes { display: block; background: var(--course-ink); color: var(--course-paper); }
+.ebook-section-intro { max-width: 980px; }
+.ebook-section-intro .eyebrow { color: var(--course-accent); }
+.ebook-section-intro .section-title {
+  max-width: 880px;
+  margin: 1.25rem 0 0;
+  color: var(--course-ink);
+  font-size: clamp(3.5rem, 7.5vw, 6.8rem);
+  line-height: .91;
+  text-wrap: balance;
+}
+.ebook-section-intro .lead { max-width: 680px; margin-top: 2rem; color: #5d5c57; line-height: 1.75; }
+.ebook-outcomes .ebook-section-intro .eyebrow,
+.ebook-section-intro-dark .eyebrow { color: var(--course-accent-light); }
+.ebook-outcomes .ebook-section-intro .section-title,
+.ebook-section-intro-dark .section-title { color: var(--course-paper); }
+.ebook-outcomes .ebook-section-intro .lead,
+.ebook-section-intro-dark .lead { color: var(--course-muted); }
+
+.ebook-outcome-lines { max-width: 980px; margin-top: clamp(3.5rem, 7vw, 6rem); }
+.ebook-outcome-lines p {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 1.7rem 0;
+  border-top: 1px solid var(--course-line);
+  color: var(--course-paper);
+  font-family: var(--course-display);
+  font-size: clamp(1.8rem, 3.8vw, 3.25rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.ebook-outcome-lines p:last-child { border-bottom: 1px solid var(--course-line); }
+.ebook-outcome-lines span { color: var(--course-accent-light); font-family: var(--course-body); font-size: .7rem; letter-spacing: .12em; }
+
+body.ebook-sales-page section.ebook-testimonials { background: #0c0c0d; color: var(--course-paper); }
+.ebook-testimonial-grid {
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: start;
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+}
+.ebook-testimonial-grid figure { overflow: hidden; margin: 0; border: 1px solid rgba(130,153,255,.28); background: #050505; }
+.ebook-testimonial-grid figure:nth-child(even) { margin-top: clamp(2rem, 6vw, 5rem); }
+.ebook-testimonial-grid img { display: block; width: 100%; height: auto; }
+
+body.ebook-sales-page section.ebook-program,
+body.ebook-sales-page section.ebook-access { background: var(--course-paper); }
+.ebook-program-list { max-width: 980px; margin-top: clamp(3.5rem, 7vw, 6rem); padding: 0; list-style: none; }
+.ebook-program-list li {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(1.8rem, 4vw, 3rem) 0;
+  border-top: 1px solid rgba(11,11,11,.18);
+}
+.ebook-program-list li:last-child { border-bottom: 1px solid rgba(11,11,11,.18); }
+.ebook-program-list > li > span { padding-top: .45rem; color: var(--course-accent); font-size: .68rem; font-weight: 700; letter-spacing: .14em; }
+.ebook-program-list h3 { margin: 0; color: var(--course-ink); font-family: var(--course-display); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 600; line-height: 1; text-transform: uppercase; }
+.ebook-program-list p { max-width: 650px; margin: .8rem 0 0; color: #5d5c57; line-height: 1.7; }
+.ebook-inline-cta { max-width: 980px; margin-top: 2.5rem; }
+
+body.ebook-sales-page section.ebook-teacher { display: block; background: var(--course-ink); color: var(--course-paper); }
+.ebook-teacher-inner {
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: minmax(280px, 400px) minmax(0, 1fr);
+  gap: clamp(3rem, 8vw, 7rem);
+  align-items: center;
+}
+.ebook-teacher-photo { position: relative; margin: 0; }
+.ebook-teacher-photo::before {
+  content: "";
+  position: absolute;
+  inset: 8% -7% -4% 7%;
+  border: 1px solid rgba(130,153,255,.58);
+  border-radius: 50%;
+}
+.ebook-teacher-photo img { position: relative; display: block; width: 100%; height: auto; }
+.ebook-teacher-copy .eyebrow { color: var(--course-accent-light); }
+.ebook-teacher-copy .section-title { margin: 1rem 0 2rem; color: var(--course-paper); font-size: clamp(3.8rem, 7vw, 6.5rem); }
+.ebook-teacher-copy > p:not(.eyebrow) { color: var(--course-muted); line-height: 1.85; }
+.ebook-teacher-copy > p + p { margin-top: 1.25rem; }
+
+.ebook-access-list { max-width: 980px; margin-top: clamp(3.5rem, 7vw, 6rem); }
+.ebook-access-list article {
+  display: grid;
+  grid-template-columns: 90px minmax(230px, .75fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+  align-items: start;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid rgba(11,11,11,.18);
+}
+.ebook-access-list article:last-child { border-bottom: 1px solid rgba(11,11,11,.18); }
+.ebook-access-list span { padding-top: .45rem; color: var(--course-accent); font-size: .68rem; font-weight: 700; letter-spacing: .14em; }
+.ebook-access-list h3 { margin: 0; color: var(--course-ink); font-family: var(--course-display); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 600; line-height: 1; text-transform: uppercase; }
+.ebook-access-list p { margin: 0; color: #5d5c57; line-height: 1.7; }
+
+body.ebook-sales-page .ebook-offer .offer-shell { max-width: 1080px; }
+body.ebook-sales-page .ebook-offer .offer-price small { font-size: .32em; vertical-align: top; }
+body.ebook-sales-page .ebook-offer .offer-badge { visibility: hidden; height: 0; padding: 0; border: 0; }
+
+body.ebook-sales-page section.ebook-faq { background: var(--course-paper); }
+body.ebook-sales-page .ebook-faq > .narrow { max-width: 940px; }
+body.ebook-sales-page .ebook-faq .eyebrow { color: var(--course-accent); }
+body.ebook-sales-page .ebook-faq .section-title { color: var(--course-ink); }
+
+body.ebook-sales-page section.ebook-final {
+  padding-block: clamp(7rem, 14vw, 12rem);
+  background:
+    radial-gradient(circle at 50% 110%, rgba(95,124,255,.22), transparent 35rem),
+    var(--course-ink);
+  color: var(--course-paper);
+  text-align: center;
+}
+.ebook-final-inner { max-width: 1000px; }
+.ebook-final-inner .eyebrow { justify-content: center; color: var(--course-accent-light); }
+.ebook-final-inner h2 {
+  margin: 1.5rem auto 2.5rem;
+  color: var(--course-paper);
+  font-family: var(--course-display);
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 600;
+  line-height: .87;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+}
+.ebook-final-inner h2 em { color: transparent; font-style: normal; -webkit-text-stroke: 1px var(--course-accent-light); }
+.ebook-final-inner .btn { min-width: min(100%, 450px); }
+.ebook-final-inner > p:last-child { margin: 1.25rem 0 0; color: var(--course-muted); font-size: .72rem; }
+
+@media (max-width: 760px) {
+  body.ebook-sales-page header.ebook-hero > .ebook-hero-inner { width: min(calc(100% - 1.5rem), 1180px); }
+  .ebook-sales-page .ebook-hero .sales-brand-lockup { margin-bottom: 5rem; }
+  .ebook-sales-page .ebook-hero .ebook-hero-copy .display { font-size: clamp(3.65rem, 17vw, 5.6rem); }
+  .ebook-cover-stage { margin-top: 3.25rem; }
+  .ebook-testimonial-grid { grid-template-columns: 1fr; }
+  .ebook-testimonial-grid figure:nth-child(even) { margin-top: 0; }
+  .ebook-teacher-inner { grid-template-columns: 1fr; }
+  .ebook-teacher-photo { width: min(86%, 390px); margin-inline: auto; }
+  .ebook-teacher-copy { text-align: center; }
+  .ebook-teacher-copy .eyebrow { justify-content: center; }
+  .ebook-access-list article { grid-template-columns: 62px minmax(0, 1fr); }
+  .ebook-access-list article p { grid-column: 2; }
+}
+
+@media (max-width: 520px) {
+  .ebook-sales-page .ebook-hero .sales-proof-list { grid-template-columns: 1fr; }
+  .ebook-sales-page .ebook-hero .sales-proof-list li { padding: .9rem 0; text-align: center; }
+  .ebook-sales-page .ebook-hero .sales-proof-list li + li { border-top: 1px solid var(--course-line); border-left: 0; }
+  .ebook-editorial > h2,
+  .ebook-section-intro .section-title { font-size: clamp(3rem, 15vw, 4.3rem); }
+  .ebook-outcome-lines p { grid-template-columns: 48px minmax(0, 1fr); gap: 1rem; font-size: clamp(1.7rem, 9vw, 2.5rem); }
+  .ebook-program-list li { grid-template-columns: 50px minmax(0, 1fr); gap: 1rem; }
+  .ebook-program-list h3 { font-size: clamp(1.85rem, 9vw, 2.6rem); }
+  .ebook-access-list article { grid-template-columns: 42px minmax(0, 1fr); gap: 1rem; }
+  .ebook-access-list h3 { font-size: clamp(1.9rem, 9vw, 2.6rem); }
+  .ebook-final-inner h2 { font-size: clamp(3.4rem, 17vw, 5rem); }
+}
