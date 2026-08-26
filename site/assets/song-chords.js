@@ -294,18 +294,23 @@ importButton?.addEventListener('click', async () => {
   importButton.disabled = true;
   importButton.textContent = 'Lendo a cifra…';
   setStatus('Buscando título, artista e acordes…');
+  let timeout;
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
+    timeout = setTimeout(() => controller.abort(), 15000);
     const response = await fetch('/api/importar-cifra', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ url }),
       signal: controller.signal
     });
-    clearTimeout(timeout);
-    const data = await response.json().catch(() => ({}));
+    const contentType = response.headers.get('content-type') || '';
+    const data = contentType.includes('application/json') ? await response.json().catch(() => ({})) : {};
+    if (response.status === 404 || !contentType.includes('application/json')) {
+      throw new Error('O serviço de importação não está disponível neste endereço. Abra o projeto com “npm run dev” ou “deno task dev”.');
+    }
     if (!response.ok) throw new Error(data.message || 'Não foi possível ler essa página.');
+    if (!Array.isArray(data.chords)) throw new Error('A resposta do serviço de importação é inválida.');
     const chords = parseChordText(data.chords.join(' '));
     songTitleInput.value = data.title || '';
     artistInput.value = data.artist || '';
@@ -315,6 +320,7 @@ importButton?.addEventListener('click', async () => {
     const timeoutMessage = error.name === 'AbortError' ? 'A página demorou demais para responder.' : error.message;
     setStatus(`${timeoutMessage} Você ainda pode inserir os acordes manualmente.`, 'error');
   } finally {
+    clearTimeout(timeout);
     importButton.disabled = false;
     importButton.textContent = 'Importar acordes';
   }

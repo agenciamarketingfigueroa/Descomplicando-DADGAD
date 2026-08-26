@@ -102,7 +102,7 @@ function personName(value) {
 
 function titleAndArtist(html, url) {
   const musicData = findMusicJsonLd(html);
-  let title = cleanText(musicData?.name || extractFirstTag(html, 'h1'));
+  let title = cleanText(extractFirstTag(html, 'h1') || musicData?.name);
   let artist = personName(musicData?.byArtist || musicData?.author || musicData?.creator);
 
   const headingCandidates = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/gi)]
@@ -153,14 +153,19 @@ export function extractChords(html) {
     ...html.matchAll(/<pre[^>]*>([\s\S]*?)<\/pre>/gi),
     ...html.matchAll(/<(?:div|section|article)[^>]+class=["'][^"']*(?:chord|acorde|cifra)[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|section|article)>/gi)
   ];
-  priorityRegions.forEach((match) => collectChordTokens(match[1], chords, seen));
 
-  for (const match of html.matchAll(/data-(?:chord|acorde)=["']([^"']+)["']/gi)) {
-    collectChordTokens(match[1], chords, seen);
-  }
-  for (const match of html.matchAll(/["'](?:chord|acorde|chordName)["']\s*:\s*["']([^"']+)["']/gi)) {
-    collectChordTokens(match[1], chords, seen);
-  }
+  const collectStructuredChords = (source) => {
+    for (const match of source.matchAll(/data-(?:chord|acorde)(?:-(?:name|original-text))?=["']([^"']+)["']/gi)) {
+      collectChordTokens(match[1], chords, seen);
+    }
+    for (const match of source.matchAll(/["'](?:chord|acorde|chordName)["']\s*:\s*["']([^"']+)["']/gi)) {
+      collectChordTokens(match[1], chords, seen);
+    }
+  };
+
+  priorityRegions.forEach((match) => collectStructuredChords(match[1]));
+  if (chords.length < 2) collectStructuredChords(html);
+  if (chords.length < 2) priorityRegions.forEach((match) => collectChordTokens(match[1], chords, seen));
 
   if (chords.length < 2) {
     const smallTags = [...html.matchAll(/<(?:b|strong|span|i|a)[^>]*>([^<>]{1,24})<\/(?:b|strong|span|i|a)>/gi)];

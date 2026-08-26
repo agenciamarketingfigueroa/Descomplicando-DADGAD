@@ -24,10 +24,14 @@ const cifrasFixture = `<!doctype html><html><head><title>Tempo Perdido - Legião
 const cifrasSong = parseSongPage(cifrasFixture, 'https://www.cifras.com.br/cifra/legiao-urbana/tempo-perdido');
 expect(cifrasSong.chords.join(' ') === 'G4/B Am Bm Em', `Leitura do Cifras incorreta: ${cifrasSong.chords.join(' ')}`);
 
+const currentCifraClubFixture = `<!doctype html><html><head><script type="application/ld+json">{"@type":"MusicComposition","name":"Legião Urbana - Tempo Perdido","byArtist":{"name":"Legião Urbana"}}</script></head><body><h1>Tempo Perdido</h1><pre><b data-chord-name="C">C</b> <b data-chord-name="Am7">Am7</b>\nA tempestade chega\nE fica</pre></body></html>`;
+const currentCifraClubSong = parseSongPage(currentCifraClubFixture, 'https://www.cifraclub.com.br/legiao-urbana/tempo-perdido/');
+expect(currentCifraClubSong.title === 'Tempo Perdido', `H1 deveria prevalecer no título: ${currentCifraClubSong.title}`);
+expect(currentCifraClubSong.chords.join(' ') === 'C Am7', `Acordes estruturados incorretos: ${currentCifraClubSong.chords.join(' ')}`);
+
 if (failures.length) {
   console.error(failures.join('\n'));
   Deno.exit(1);
 }
 
 console.log('Ferramenta de músicas validada: entrada manual, metadados e importação de cifras.');
-

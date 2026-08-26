@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "python3 -m http.server 4173 -d site",
+    "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "lint": "node scripts/validate.mjs",
-    "typecheck": "node --check site/assets/site.js && node --check site/assets/chord-engine.js && node --check site/assets/chords.js && node --check site/assets/song-chords.js && node --check site/assets/tuner.js && node --check api/importar-cifra.js",
+    "typecheck": "node --check site/assets/site.js && node --check site/assets/chord-engine.js && node --check site/assets/chords.js && node --check site/assets/song-chords.js && node --check site/assets/tuner.js && node --check api/importar-cifra.js && node --check scripts/dev.mjs",
     "test": "node scripts/validate.mjs && deno run --allow-read scripts/test-chords.ts && deno run --allow-read scripts/test-song-tool.ts"
   }
 }

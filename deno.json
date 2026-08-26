@@ -1,8 +1,8 @@
 {
   "tasks": {
-    "dev": "python3 -m http.server 4173 -d site",
+    "dev": "deno run --allow-read --allow-net --allow-env=DADGAD_DEV_PORT scripts/dev.mjs",
     "build": "deno run --allow-read --allow-write scripts/build.ts",
-    "lint": "deno check site/assets/site.js site/assets/chord-engine.js site/assets/chords.js site/assets/song-chords.js site/assets/tuner.js api/importar-cifra.js scripts/build.ts scripts/validate.ts scripts/test-chords.ts scripts/test-song-tool.ts && deno run --allow-read scripts/validate.ts",
+    "lint": "deno check site/assets/site.js site/assets/chord-engine.js site/assets/chords.js site/assets/song-chords.js site/assets/tuner.js api/importar-cifra.js scripts/dev.mjs scripts/build.ts scripts/validate.ts scripts/test-chords.ts scripts/test-song-tool.ts && deno run --allow-read scripts/validate.ts",
     "test": "deno run --allow-read scripts/validate.ts && deno run --allow-read scripts/test-chords.ts && deno run --allow-read scripts/test-song-tool.ts"
   }
 }
