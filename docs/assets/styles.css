@@ -3066,4 +3066,25 @@ body.home-page .about-note-grid { grid-template-columns: minmax(230px, .55fr) mi
   .course-sales-page .sales-teacher-content .lead,
   .course-sales-page .sales-teacher-content .sales-teacher-copy { margin-inline: auto; text-align: center; }
   .thanks-profile-photo { margin-inline: auto; }
+
+  /* Mobile contrast: pin headings to the actual section background. */
+  body.course-sales-page .sales-story .prose h2,
+  body.course-sales-page .sales-story .sales-problem-panel .section-title,
+  body.course-sales-page .sales-program .section-title,
+  body.course-sales-page .sales-program .sales-module-grid h3,
+  body.course-sales-page .sales-faq-section .section-title {
+    color: var(--course-ink);
+    -webkit-text-fill-color: var(--course-ink);
+  }
+
+  body.course-sales-page .sales-outcomes .section-title,
+  body.course-sales-page .sales-bonuses .section-title,
+  body.course-sales-page .sales-bonuses summary,
+  body.course-sales-page .course-offer .section-title,
+  body.course-sales-page .sales-guarantee .prose h2,
+  body.course-sales-page .sales-teacher .section-title,
+  body.course-sales-page .sales-final h2 {
+    color: var(--course-paper);
+    -webkit-text-fill-color: var(--course-paper);
+  }
 }
