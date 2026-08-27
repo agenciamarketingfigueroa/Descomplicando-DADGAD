@@ -3091,6 +3091,39 @@ body.home-page .about-note-grid { grid-template-columns: minmax(230px, .55fr) mi
   body main .hero-actions,
   body main .button-row { justify-content: center; }
 
+  body main .path-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  body main .path-card h3,
+  body main .path-card p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body main .path-card .path-number { width: 100%; text-align: center; }
+  body main .path-card .arrow { align-self: center; }
+
+  body main .song-home-feature-grid,
+  body main .song-home-feature-grid > div:last-child { text-align: center; }
+
+  body:not(.course-page) main .sound-card-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  body:not(.course-page) main .sound-card-top .btn {
+    padding-inline: 1rem;
+    white-space: nowrap;
+  }
+
+  body:not(.course-page) main .sound-card .fact-list li { text-align: center; }
+  body:not(.course-page) main .sound-card .fact-list p { margin-inline: auto; }
+
   body.home-page .about-note-grid { grid-template-columns: 1fr; }
   .about-note-intro { flex-direction: column; justify-content: center; text-align: center; }
   .profile-photo-small { width: 124px; flex-basis: auto; }
@@ -3121,4 +3154,26 @@ body.home-page .about-note-grid { grid-template-columns: minmax(230px, .55fr) mi
     color: var(--course-paper);
     -webkit-text-fill-color: var(--course-paper);
   }
+
+  body .site-footer,
+  body .site-footer .footer-brand,
+  body .site-footer .footer-col,
+  body .site-footer .footer-bottom { text-align: center; }
+
+  body .site-footer .footer-grid { justify-items: center; }
+  body .site-footer .footer-brand { margin-inline: auto; }
+  body .site-footer .footer-brand .brand { justify-content: center; }
+  body .site-footer .footer-bottom { align-items: center; }
+
+  body.home-page main .editorial .article-card {
+    min-height: 0;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block: 2rem;
+    text-align: center;
+  }
+
+  body.home-page main .editorial .article-card > div { width: 100%; }
+  body.home-page main .editorial .article-card p { margin-inline: auto; text-align: center; }
+  body.home-page main .editorial .article-card .article-link { margin-top: 1.5rem; }
 }
