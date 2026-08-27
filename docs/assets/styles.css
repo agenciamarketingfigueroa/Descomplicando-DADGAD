@@ -2320,6 +2320,11 @@ body:not(.course-page) .footer-col h2,
   .sales-brand-lockup { margin-bottom: 5rem; }
   .course-sales-page .sales-module-grid li { display: block; }
   .course-sales-page .sales-module-grid span { margin-bottom: 1.5rem; }
+  body.course-sales-page section.sales-program .section-title,
+  body.course-sales-page section.sales-program .sales-module-grid h3 {
+    color: var(--course-ink);
+    -webkit-text-fill-color: var(--course-ink);
+  }
   .course-sales-page .sales-module-grid h3 { margin-bottom: 1rem; }
   .course-sales-page .sales-contact { align-items: center; text-align: center; }
 }
