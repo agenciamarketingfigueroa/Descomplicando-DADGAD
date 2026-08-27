@@ -2967,3 +2967,103 @@ body.thanks-page { background: var(--course-ink); }
   .thanks-step-list > li { grid-template-columns: 38px minmax(0, 1fr); }
   .thanks-final h2 { font-size: clamp(3.4rem, 17vw, 5rem); }
 }
+
+/* Felipe profile photography */
+.profile-photo {
+  margin: 0;
+  overflow: hidden;
+  background: var(--brand-panel-2, var(--course-panel-2, #191919));
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.profile-byline {
+  min-height: 48px;
+  display: flex !important;
+  align-items: center;
+  gap: .8rem;
+}
+
+.profile-byline::before { display: none !important; }
+.profile-byline img {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 27%;
+}
+
+body.home-page .about-note-grid { grid-template-columns: minmax(230px, .55fr) minmax(0, 1fr); }
+.about-note-intro { display: flex; align-items: center; gap: 1.25rem; }
+.about-note-intro .eyebrow { margin: 0; }
+.profile-photo-small {
+  width: 92px;
+  flex: 0 0 92px;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--brand-dark-line, rgba(11,11,11,.16));
+  border-radius: 14px;
+}
+
+.profile-portrait { margin: 0; }
+.profile-portrait::before,
+.profile-portrait::after { display: none; }
+.profile-portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.course-sales-page .sales-teacher .sales-teacher-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+  max-width: 920px;
+}
+
+.sales-teacher-profile {
+  aspect-ratio: 2 / 3;
+  border: 1px solid var(--course-line);
+  border-radius: 50% 50% 4px 4px;
+}
+
+.sales-teacher-content { min-width: 0; }
+.course-sales-page .sales-teacher-content .section-title { color: var(--course-paper); }
+.course-sales-page .sales-teacher-content .lead { max-width: 600px; }
+.course-sales-page .sales-teacher-content .sales-teacher-copy { margin-top: clamp(2rem, 5vw, 3.5rem); }
+
+.ebook-teacher-photo { aspect-ratio: 2 / 3; overflow: hidden; }
+.ebook-teacher-photo img { height: 100%; object-fit: cover; object-position: 50% 30%; }
+.thanks-welcome img { aspect-ratio: 2 / 3; object-fit: cover; object-position: 50% 30%; border-radius: 50% 50% 8px 8px; }
+.thanks-profile-photo { width: 92px; aspect-ratio: 1; margin-bottom: 1.5rem; border-radius: 50%; }
+
+@media (max-width: 680px) {
+  body main h1,
+  body main h2,
+  body main h3 { text-align: center; }
+
+  body main .display,
+  body main .section-title { margin-inline: auto; }
+
+  body main .eyebrow { justify-content: center; text-align: center; }
+
+  body.home-page .about-note-grid { grid-template-columns: 1fr; }
+  .about-note-intro { flex-direction: column; justify-content: center; text-align: center; }
+  .profile-photo-small { width: 124px; flex-basis: auto; }
+
+  .course-sales-page .sales-teacher .sales-teacher-grid { display: block; }
+  .sales-teacher-profile { width: min(76%, 340px); margin: 0 auto 2.75rem; }
+  .course-sales-page .sales-teacher-content .lead,
+  .course-sales-page .sales-teacher-content .sales-teacher-copy { margin-inline: auto; text-align: center; }
+  .thanks-profile-photo { margin-inline: auto; }
+}
