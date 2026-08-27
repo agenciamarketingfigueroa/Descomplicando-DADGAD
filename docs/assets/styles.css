@@ -3207,4 +3207,60 @@ body.home-page .about-note-grid { grid-template-columns: minmax(230px, .55fr) mi
   body.course-sales-page .sales-program .sales-module-grid p {
     margin: 0;
   }
+
+  /* Center the complete pricing composition on course landing pages. */
+  body.course-sales-page .course-offer .offer-shell {
+    justify-items: center;
+    text-align: center;
+  }
+
+  body.course-sales-page .course-offer .offer-shell::after {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  body.course-sales-page .course-offer .offer-copy {
+    width: 100%;
+    text-align: center;
+  }
+
+  body.course-sales-page .course-offer .offer-copy .eyebrow {
+    justify-content: center;
+  }
+
+  body.course-sales-page .course-offer .offer-copy .section-title {
+    margin-inline: auto;
+  }
+
+  body.course-sales-page .course-offer .offer-includes {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  body.course-sales-page .course-offer .offer-includes li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0 0 0.9rem;
+  }
+
+  body.course-sales-page .course-offer .offer-includes li::before {
+    position: static;
+  }
+
+  body.course-sales-page .course-offer .offer-card {
+    align-items: center;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  body.course-sales-page .course-offer .offer-was,
+  body.course-sales-page .course-offer .offer-kicker,
+  body.course-sales-page .course-offer .offer-price,
+  body.course-sales-page .course-offer .offer-cash {
+    width: 100%;
+    text-align: center;
+  }
 }
