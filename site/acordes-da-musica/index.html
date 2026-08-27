@@ -48,20 +48,9 @@
             <label><span>Artista</span><input type="text" autocomplete="off" placeholder="Ex.: Legião Urbana" data-song-artist></label>
           </div>
 
-          <div class="song-mode-tabs" role="tablist" aria-label="Forma de adicionar os acordes">
-            <button type="button" role="tab" aria-selected="true" data-song-mode="manual">Adicionar manualmente</button>
-            <button type="button" role="tab" aria-selected="false" data-song-mode="link">Importar por link</button>
-          </div>
-
-          <div class="song-mode-panel" role="tabpanel" data-mode-panel="manual">
+          <div class="song-mode-panel">
             <label><span>Acordes presentes na música</span><textarea rows="4" placeholder="D  Bm  G  A7&#10;Pode separar por espaço, vírgula ou linha." data-song-chords></textarea></label>
             <div class="song-form-actions"><button class="btn" type="submit">Criar meu guia →</button><button class="text-button" type="button" data-song-example>Carregar exemplo</button></div>
-          </div>
-
-          <div class="song-mode-panel" role="tabpanel" data-mode-panel="link" hidden>
-            <label><span>Link da cifra</span><input type="url" inputmode="url" autocomplete="url" placeholder="https://www.cifraclub.com.br/..." data-song-url></label>
-            <p class="song-privacy-note">Compatível com Cifra Club e Cifras.com.br. Lemos apenas o nome da música, o artista e os símbolos dos acordes — a letra não é copiada.</p>
-            <button class="btn" type="button" data-import-song>Importar acordes</button>
           </div>
           <p class="song-status" role="status" aria-live="polite" data-song-status></p>
         </form>
@@ -79,8 +68,6 @@
           <div><p class="eyebrow">Seu guia de acordes</p><h2 id="guia-title" data-result-song>Minha música</h2><p data-result-artist>Artista não informado</p></div>
           <button class="btn screen-only" type="button" data-export-song disabled>Exportar em PDF ↓</button>
         </div>
-
-        <div class="song-source" data-song-source-wrap hidden>Importado de <a href="#" target="_blank" rel="noopener nofollow" data-song-source></a>. Confira a cifra original para letra, ritmo e estrutura.</div>
 
         <div class="song-exact-list"><span>Acordes identificados</span><div data-exact-chords></div></div>
 

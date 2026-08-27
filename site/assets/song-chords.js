@@ -39,8 +39,6 @@ const mainForm = pageDocument?.querySelector('[data-song-form]');
 const songTitleInput = pageDocument?.querySelector('[data-song-title]');
 const artistInput = pageDocument?.querySelector('[data-song-artist]');
 const chordInput = pageDocument?.querySelector('[data-song-chords]');
-const urlInput = pageDocument?.querySelector('[data-song-url]');
-const importButton = pageDocument?.querySelector('[data-import-song]');
 const exportButton = pageDocument?.querySelector('[data-export-song]');
 const exampleButton = pageDocument?.querySelector('[data-song-example]');
 const statusNode = pageDocument?.querySelector('[data-song-status]');
@@ -50,10 +48,6 @@ const colorGrid = pageDocument?.querySelector('[data-color-chords]');
 const exactList = pageDocument?.querySelector('[data-exact-chords]');
 const resultSong = [...(pageDocument?.querySelectorAll('[data-result-song]') || [])];
 const resultArtist = [...(pageDocument?.querySelectorAll('[data-result-artist]') || [])];
-const sourceWrap = pageDocument?.querySelector('[data-song-source-wrap]');
-const sourceLink = pageDocument?.querySelector('[data-song-source]');
-const modeButtons = [...(pageDocument?.querySelectorAll('[data-song-mode]') || [])];
-const modePanels = [...(pageDocument?.querySelectorAll('[data-mode-panel]') || [])];
 
 const normalizeAccidental = (value = '') => value.replace('#', '♯').replace('b', '♭');
 
@@ -230,7 +224,7 @@ function setStatus(message = '', type = '') {
   statusNode.dataset.type = type;
 }
 
-function renderSong({ title, artist, chords, source = '' }) {
+function renderSong({ title, artist, chords }) {
   if (!chords.length) {
     setStatus('Não encontrei acordes válidos. Tente algo como D, Bm, G, A7 ou C7+.', 'error');
     return;
@@ -247,13 +241,6 @@ function renderSong({ title, artist, chords, source = '' }) {
   const colors = study.flatMap(({ colors: groupColors }) => groupColors);
   colorGrid.replaceChildren(...colors.map((chord) => chordCard(chord, 'color')));
   pageDocument.querySelector('[data-color-section]').hidden = colors.length === 0;
-  if (source) {
-    sourceLink.href = source;
-    sourceLink.textContent = new URL(source).hostname.replace(/^www\./, '');
-    sourceWrap.hidden = false;
-  } else {
-    sourceWrap.hidden = true;
-  }
   output.hidden = false;
   exportButton.disabled = false;
   setStatus(`${chords.length} ${chords.length === 1 ? 'acorde identificado' : 'acordes identificados'} e organizados para estudar.`, 'success');
@@ -270,60 +257,11 @@ mainForm?.addEventListener('submit', (event) => {
   readManualForm();
 });
 
-modeButtons.forEach((button) => button.addEventListener('click', () => {
-  const mode = button.dataset.songMode;
-  modeButtons.forEach((item) => item.setAttribute('aria-selected', String(item === button)));
-  modePanels.forEach((panel) => { panel.hidden = panel.dataset.modePanel !== mode; });
-  setStatus('');
-}));
-
 exampleButton?.addEventListener('click', () => {
   songTitleInput.value = 'Caminho aberto';
   artistInput.value = 'Exemplo DADGAD';
   chordInput.value = 'D  Bm  G  A7';
   readManualForm();
-});
-
-importButton?.addEventListener('click', async () => {
-  const url = urlInput.value.trim();
-  if (!url) {
-    setStatus('Cole primeiro o link da cifra.', 'error');
-    urlInput.focus();
-    return;
-  }
-  importButton.disabled = true;
-  importButton.textContent = 'Lendo a cifra…';
-  setStatus('Buscando título, artista e acordes…');
-  let timeout;
-  try {
-    const controller = new AbortController();
-    timeout = setTimeout(() => controller.abort(), 15000);
-    const response = await fetch('/api/importar-cifra', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ url }),
-      signal: controller.signal
-    });
-    const contentType = response.headers.get('content-type') || '';
-    const data = contentType.includes('application/json') ? await response.json().catch(() => ({})) : {};
-    if (response.status === 404 || !contentType.includes('application/json')) {
-      throw new Error('O serviço de importação não está disponível neste endereço. Abra o projeto com “npm run dev” ou “deno task dev”.');
-    }
-    if (!response.ok) throw new Error(data.message || 'Não foi possível ler essa página.');
-    if (!Array.isArray(data.chords)) throw new Error('A resposta do serviço de importação é inválida.');
-    const chords = parseChordText(data.chords.join(' '));
-    songTitleInput.value = data.title || '';
-    artistInput.value = data.artist || '';
-    chordInput.value = chords.map(({ symbol }) => symbol).join('  ');
-    renderSong({ title: data.title, artist: data.artist, chords, source: data.source || url });
-  } catch (error) {
-    const timeoutMessage = error.name === 'AbortError' ? 'A página demorou demais para responder.' : error.message;
-    setStatus(`${timeoutMessage} Você ainda pode inserir os acordes manualmente.`, 'error');
-  } finally {
-    clearTimeout(timeout);
-    importButton.disabled = false;
-    importButton.textContent = 'Importar acordes';
-  }
 });
 
 exportButton?.addEventListener('click', () => {

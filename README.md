@@ -16,11 +16,11 @@ Com Node.js, o comando equivalente é:
 npm run dev
 ```
 
-O servidor de desenvolvimento entrega tanto os arquivos do site quanto `/api/importar-cifra`, necessário para a importação por link.
+O servidor de desenvolvimento também mantém disponível a função experimental `/api/importar-cifra`. A opção de importação por link está temporariamente oculta e desativada na interface pública.
 
 ### VS Code Live Server
 
-O Live Server serve somente os arquivos estáticos. Ele pode ser usado para conferir as páginas, mas a importação por link não funciona nele porque a rota `/api/importar-cifra` não é executada. Para testar a ferramenta completa, use `deno task dev` ou `npm run dev`.
+O Live Server serve somente os arquivos estáticos e pode ser usado para conferir as páginas.
 
 ## Validar e gerar produção
 
@@ -32,7 +32,13 @@ deno task build
 
 Há também scripts equivalentes no `package.json` para ambientes com Node/npm.
 
-O build é copiado para `dist/`. As páginas podem ser publicadas em qualquer host estático, mas a importação por link exige também a função `api/importar-cifra.js`. A configuração deste repositório está pronta para a Vercel. Em uma hospedagem exclusivamente estática, a entrada manual continua funcionando, mas a importação por link fica indisponível.
+O build é copiado para `dist/`. A publicação oficial usa o conteúdo estático de `site/` no GitHub Pages; a entrada manual de acordes continua funcionando normalmente.
+
+## Publicar no GitHub Pages
+
+O workflow `.github/workflows/pages.yml` publica automaticamente o conteúdo de `site/` quando a branch `main` recebe um push. No GitHub, em **Settings → Pages**, a origem da publicação deve estar definida como **GitHub Actions**.
+
+O domínio personalizado é preservado pelo arquivo `site/CNAME`.
 
 ## Estrutura
 
