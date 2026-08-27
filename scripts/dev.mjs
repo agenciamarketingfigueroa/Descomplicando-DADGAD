@@ -4,7 +4,7 @@ import { extname, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import importSongApi from '../api/importar-cifra.js';
 
-const SITE_ROOT = resolve(import.meta.dirname, '..', 'site');
+const SITE_ROOT = resolve(import.meta.dirname, '..', 'docs');
 const DEFAULT_PORT = 4173;
 
 const CONTENT_TYPES = {

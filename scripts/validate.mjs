@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve } from 'node:path';
 
-const site = resolve(import.meta.dirname, '..', 'site');
+const site = resolve(import.meta.dirname, '..', 'docs');
 const files = [];
 const walk = (dir) => readdirSync(dir).forEach((name) => {
   const path = join(dir, name);

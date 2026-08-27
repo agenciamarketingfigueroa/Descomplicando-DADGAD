@@ -93,7 +93,7 @@ Inventário baseado nas URLs rastreáveis encontradas na busca e na navegação 
 | `/2022/10/27/a-historia-da-afinacao-dadgad-e-seu-impacto-no-disco-historias-e-bicicletas-do-oficina-g3/` | `/universo/historias-e-bicicletas-oficina-g3-dadgad/` | 301; conteúdo revisado e URL simplificada |
 | `/politica-de-privacidade/` | `/privacidade/` | 301 |
 
-Os redirects estão em `site/_redirects` e `vercel.json`. Antes da migração, exportar a lista completa do WordPress/Search Console e complementar este mapa; a busca pública pode não revelar todas as URLs.
+Os redirects estão em `docs/_redirects` e `vercel.json`. Antes da migração, exportar a lista completa do WordPress/Search Console e complementar este mapa; a busca pública pode não revelar todas as URLs.
 
 ## 5. Structured Data
 

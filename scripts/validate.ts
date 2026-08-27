@@ -1,4 +1,4 @@
-const site = new URL('../site/', import.meta.url);
+const site = new URL('../docs/', import.meta.url);
 const files: URL[] = [];
 
 async function walk(directory: URL) {

@@ -1,4 +1,4 @@
-import { DADGAD_TUNING, QUALITY, chordPitches, generateVoicings, mod } from '../site/assets/chord-engine.js';
+import { DADGAD_TUNING, QUALITY, chordPitches, generateVoicings, mod } from '../docs/assets/chord-engine.js';
 
 const failures: string[] = [];
 let checked = 0;

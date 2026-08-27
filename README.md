@@ -32,19 +32,19 @@ deno task build
 
 Há também scripts equivalentes no `package.json` para ambientes com Node/npm.
 
-O build é copiado para `dist/`. A publicação oficial usa o conteúdo estático de `site/` no GitHub Pages; a entrada manual de acordes continua funcionando normalmente.
+O build é copiado para `dist/`. A publicação oficial usa o conteúdo estático de `docs/` no GitHub Pages; a entrada manual de acordes continua funcionando normalmente.
 
 ## Publicar no GitHub Pages
 
-O workflow `.github/workflows/pages.yml` publica automaticamente o conteúdo de `site/` quando a branch `main` recebe um push. No GitHub, em **Settings → Pages**, a origem da publicação deve estar definida como **GitHub Actions**.
+O GitHub Pages publica diretamente a pasta `docs/` da branch `main`. No GitHub, em **Settings → Pages**, selecione **Deploy from a branch**, branch **main** e pasta **/docs**.
 
-O domínio personalizado é preservado pelo arquivo `site/CNAME`.
+O domínio personalizado é preservado pelo arquivo `docs/CNAME`.
 
 ## Estrutura
 
-- `site/`: páginas e assets publicados;
-- `site/assets/chords.js`: motor de acordes, diagramas e áudio;
-- `site/assets/tuner.js`: referências sonoras do afinador;
+- `docs/`: páginas e assets publicados;
+- `docs/assets/chords.js`: motor de acordes, diagramas e áudio;
+- `docs/assets/tuner.js`: referências sonoras do afinador;
 - `scripts/`: build e validações sem dependências;
 - `SEO-STRATEGY.md`: arquitetura, migração e roadmap editorial.
 

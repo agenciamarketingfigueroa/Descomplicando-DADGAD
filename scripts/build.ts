@@ -1,5 +1,5 @@
 const root = new URL('../', import.meta.url);
-const source = new URL('site/', root);
+const source = new URL('docs/', root);
 const output = new URL('dist/', root);
 
 try { await Deno.remove(output, { recursive: true }); } catch (error) {

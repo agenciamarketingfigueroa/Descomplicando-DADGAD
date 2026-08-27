@@ -1,4 +1,4 @@
-import { parseChordSymbol, parseChordText } from '../site/assets/song-chords.js';
+import { parseChordSymbol, parseChordText } from '../docs/assets/song-chords.js';
 import { parseSongPage } from '../api/importar-cifra.js';
 
 const failures: string[] = [];
