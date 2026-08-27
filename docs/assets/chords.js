@@ -1,5 +1,5 @@
 import { DADGAD_LABEL, DADGAD_TUNING, QUALITY, generateVoicings, getCourseVoicings, spelledNoteName } from './chord-engine.js';
-import { createAudioContext, playGuitarString } from './guitar-audio.js';
+import { createAudioContext, playGuitarString, resumeAudioContext } from './guitar-audio.js?v=20260827-1';
 
 const ROOT_OPTIONS = [
   ['C', 0], ['C♯', 1], ['D♭', 1], ['D', 2], ['E♭', 3], ['E', 4], ['F', 5],
@@ -48,9 +48,15 @@ function diagramSvg(voicing, chordName) {
 }
 
 let audioContext;
-function playVoicing(voicing, button) {
-  audioContext ||= createAudioContext();
-  if (audioContext.state === 'suspended') audioContext.resume();
+async function playVoicing(voicing, button) {
+  if (!audioContext || audioContext.state === 'closed') audioContext = createAudioContext();
+  try {
+    await resumeAudioContext(audioContext);
+  } catch (error) {
+    button.setAttribute('aria-pressed', 'false');
+    console.error('Não foi possível reproduzir o acorde.', error);
+    return;
+  }
   const start = audioContext.currentTime + .025;
   const soundingStrings = voicing.frets.filter((fret) => fret >= 0).length;
   const master = audioContext.createGain();

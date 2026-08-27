@@ -5,6 +5,21 @@ export function createAudioContext() {
   return new AudioContextClass();
 }
 
+export async function resumeAudioContext(context) {
+  if (context.state === 'closed') throw new Error('O contexto de áudio foi encerrado.');
+  if (context.state === 'running') return context;
+
+  const silentBuffer = context.createBuffer(1, 1, context.sampleRate);
+  const silentSource = context.createBufferSource();
+  silentSource.buffer = silentBuffer;
+  silentSource.connect(context.destination);
+  silentSource.start(0);
+
+  await context.resume();
+  if (context.state !== 'running') throw new Error('O navegador não liberou a reprodução de áudio.');
+  return context;
+}
+
 function createPluckedStringBuffer(context, frequency, duration) {
   const sampleRate = context.sampleRate;
   const length = Math.ceil(sampleRate * duration);
