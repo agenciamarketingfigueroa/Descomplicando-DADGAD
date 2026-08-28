@@ -1,3 +1,6 @@
+const metaPixelId = document.body?.dataset.metaPixelId;
+
+if (metaPixelId) {
 !function(f,b,e,v,n,t,s) {
   if (f.fbq) return;
   n = f.fbq = function() {
@@ -15,5 +18,6 @@
   s.parentNode.insertBefore(t, s);
 }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '2185183644936391');
+fbq('init', metaPixelId);
 fbq('track', 'PageView');
+}
