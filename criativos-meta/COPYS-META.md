@@ -289,3 +289,126 @@ Você não precisa esperar dominar tudo para começar a criar. Com uma lógica c
 ### CTA sugerido
 
 **Saiba mais**
+
+
+---
+
+## C11 — Mude três cordas. Mude seu som.
+
+**Título:** Uma nova voz para o violão
+
+**Texto principal:** Ao mudar apenas três cordas, você abre outra forma de ouvir e explorar o violão. Conheça o DADGAD e descubra por onde começar.
+
+**Descrição:** Descubra a afinação DADGAD.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C12 — O DADGAD começa a fazer sentido
+
+**Título:** Aprenda a lógica do DADGAD
+
+**Texto principal:** Em vez de depender de desenhos soltos, entenda como as notas, os shapes e as cordas abertas se relacionam. O curso organiza esse caminho passo a passo.
+
+**Descrição:** Entenda antes de memorizar.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C13 — Acordes que se conectam
+
+**Título:** Veja caminhos no braço
+
+**Texto principal:** Os acordes deixam de parecer posições isoladas quando você reconhece as relações entre eles. Explore o braço do violão com a lógica do DADGAD.
+
+**Descrição:** Conecte shapes e possibilidades.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C14 — Seis cordas. Uma nova linguagem.
+
+**Título:** Explore a sonoridade aberta
+
+**Texto principal:** D–A–D–G–A–D: uma afinação que convida as cordas soltas a participar da harmonia. Descubra como usar essa ressonância na sua música.
+
+**Descrição:** Outra forma de tocar violão.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C15 — Do shape à música
+
+**Título:** Leve o DADGAD para suas músicas
+
+**Texto principal:** Aprenda a sair do diagrama e aplicar acordes em progressões e arranjos. O método mostra como pensar musicalmente nessa afinação.
+
+**Descrição:** Da posição à aplicação prática.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C16 — Mais de 40 aulas
+
+**Título:** Um caminho completo em DADGAD
+
+**Texto principal:** Mais de 40 aulas organizadas para você entender a afinação, formar acordes, explorar digitações e aplicar o DADGAD na prática.
+
+**Descrição:** Conheça o conteúdo do curso.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C17 — Deixe as cordas soltas cantarem
+
+**Título:** Descubra novas texturas
+
+**Texto principal:** A sonoridade aberta do DADGAD cria espaço para bordões, ressonâncias e movimentos sutis entre acordes. Explore essas possibilidades no violão.
+
+**Descrição:** Mais cor para seus arranjos.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C18 — Quatro módulos. Uma nova lógica.
+
+**Título:** DADGAD do começo à prática
+
+**Texto principal:** O curso passa pela lógica da afinação, acordes, novas digitações e aplicação musical. Quatro módulos para construir uma base clara.
+
+**Descrição:** Conheça os quatro módulos.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C19 — Transforme acordes em arranjos
+
+**Título:** Use o DADGAD na prática
+
+**Texto principal:** Entenda como as formas se conectam e ganham função dentro de uma música. Aprenda a usar acordes e cordas abertas para criar arranjos com intenção.
+
+**Descrição:** Aplique a afinação na música.
+
+**CTA sugerido:** Saiba mais
+
+---
+
+## C20 — Seu violão, outro universo
+
+**Título:** Ouça o violão de outro jeito
+
+**Texto principal:** Uma mudança de afinação pode abrir novos caminhos para acompanhar, compor e criar. Comece a pensar naturalmente em DADGAD.
+
+**Descrição:** Explore uma nova linguagem.
+
+**CTA sugerido:** Saiba mais
+
+---
