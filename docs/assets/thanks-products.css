@@ -1,0 +1,62 @@
+/* Cards de ofertas complementares, isolados dos estilos do restante do site. */
+.thanks-products {
+  padding-block: clamp(4rem, 7vw, 7rem);
+  background: #0b101b;
+  color: #fff;
+}
+.thanks-products .thanks-section-head { text-align: center; }
+.thanks-products .thanks-section-head .eyebrow { justify-content: center; color: #f6cf66; }
+.thanks-products .thanks-section-head h2 { color: #fff; }
+.thanks-products .thanks-section-head > p:last-child {
+  max-width: 650px;
+  margin: 1.5rem auto 2.5rem;
+  color: #aeb9c9;
+  line-height: 1.7;
+}
+.thanks-products .price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.thanks-products .price-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid #3b4962;
+  border-radius: 22px;
+  background: #151f31;
+}
+.thanks-products .price-card.complete { border-color: #a9802d; background: linear-gradient(155deg, #2c2b2a, #191b23 72%); }
+.thanks-products .price-card.guide { border-color: #4776c5; background: linear-gradient(155deg, #183d78, #151f31 72%); }
+.thanks-products .card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 17px; }
+.thanks-products .card-tag { color: #f6cf66; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.thanks-products .card-top span:last-child { padding: 6px 9px; border: 1px solid #546077; border-radius: 99px; color: #d0d8e4; font-size: 10px; font-weight: 700; }
+.thanks-products .price-card h3 { margin: 0 0 10px; color: #fff; font-size: 1.45rem; line-height: 1.2; letter-spacing: -.04em; }
+.thanks-products .price-card h3 strong { color: #f6cf66; font-weight: 800; }
+.thanks-products .card-description { margin: 0 0 24px; color: #acb7c8; font-size: 13px; line-height: 1.6; }
+.thanks-products .old-price { margin-top: auto; color: #9ba6b6; font-size: 13px; text-decoration: line-through; }
+.thanks-products .guide .price-value { margin-top: auto; }
+.thanks-products .price-value { margin-bottom: 3px; padding-top: 6px; color: #fff; font-size: clamp(2.8rem, 4vw, 3.9rem); font-weight: 800; line-height: 1; letter-spacing: -.075em; }
+.thanks-products .price-value small { font-size: .36em; letter-spacing: -.01em; vertical-align: top; }
+.thanks-products .installment { margin: 0 0 20px; color: #aeb9c9; font-size: 12px; }
+.thanks-products .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #f6c94d;
+  color: #101620;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.5;
+  text-decoration: none;
+  text-align: center;
+}
+.thanks-products .button:hover { background: #ffdb71; }
+.thanks-products .button:focus-visible { outline: 3px solid #82a8ff; outline-offset: 4px; }
+.thanks-products .card-foot { margin: 12px 0 0; text-align: center; color: #a9b5c4; font-size: 11px; line-height: 1.5; }
+@media (max-width: 960px) {
+  .thanks-products .price-grid { grid-template-columns: 1fr; max-width: 600px; }
+  .thanks-products .price-card { padding: 24px; }
+}

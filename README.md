@@ -40,6 +40,16 @@ O GitHub Pages publica diretamente a pasta `docs/` da branch `main`. No GitHub, 
 
 O domínio personalizado é preservado pelo arquivo `docs/CNAME`.
 
+## Ofertas após a compra do curso
+
+- `/obrigado/`: três cards abaixo da hero, com os checkouts do Pack Violão, Pack Completo e Guia de Bolso do Timbre.
+- `/bem-vindo-dadgad/`: cópia da página `/violao-II/` da M-Vave, com o widget do funil abaixo do preço do Pack Violão (R$ 29,90). O botão flutuante leva à oferta; o card do Pack Completo mantém o checkout original.
+- `/ultima-chance/`: cópia da página `/guia/` da M-Vave, com o widget abaixo do preço do guia (R$ 37).
+
+Os estilos e as imagens das referências foram copiados para `docs/assets/funil/`, sem alterar o projeto M-Vave. As cópias não carregam os pixels publicitários da referência. Os preços e checkouts refletem as páginas publicadas em 01/10/2026; futuras mudanças de oferta devem atualizar também estas cópias e os cards de obrigado.
+
+O código fornecido pela Hotmart aparece uma vez em cada página do funil. Os parâmetros recebidos na URL são preservados para o widget identificar a compra. Ao abrir a URL diretamente, sem uma compra em andamento, a Hotmart pode informar que o formulário precisa dessa sessão. O teste completo de aceite, recusa e próxima etapa deve ser feito pelo fluxo da Hotmart após a publicação.
+
 ## Estrutura
 
 - `docs/`: páginas e assets publicados;
